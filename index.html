@@ -1,66 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DSP Basundi Chai</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">DSP Basundi Chai</div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#contact">Visit</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
-  <h1>Every Sip Feels Like Home ☕</h1>
-  <p>Authentic Basundi Chai • Fresh • Traditional • Loved</p>
-  <a href="#contact" class="btn">Visit Our Café</a>
+<!-- HEADER -->
+<header class="topbar">
+  <div class="brand">DSP Basundi Chai</div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
 </header>
 
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu">
+  <span onclick="toggleMenu()">✕</span>
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#menu">Our Menu</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact Us</a>
+</div>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-overlay">
+    <h1>Every Sip Feels Like Home</h1>
+    <p>Authentic Basundi Chai • Premium Taste</p>
+  </div>
+</section>
+
 <!-- ABOUT -->
-<section id="about" class="section">
-  <h2>About DSP Basundi Chai</h2>
+<section id="about" class="section about">
+  <h3>ABOUT US</h3>
+  <h2>Offering one of the best quality chai in the market</h2>
   <p>
-    DSP Basundi Chai is not just a tea shop — it’s a feeling.
-    We serve authentic basundi chai prepared with rich milk,
-    perfect sweetness, and traditional Indian taste.
-    A place where friends meet, stories begin, and evenings feel special.
+    DSP Basundi Chai brings a perfect blend of tradition and taste.
+    Prepared with rich milk, authentic basundi flavour, and love,
+    our chai creates moments that people remember.
   </p>
 </section>
 
 <!-- MENU -->
 <section id="menu" class="section menu">
   <h2>Our Menu</h2>
-  <div class="menu-grid">
-    <div class="menu-card">Basundi Chai ⭐ <span>₹40</span></div>
-    <div class="menu-card">Classic Chai <span>₹20</span></div>
-    <div class="menu-card">Masala Chai <span>₹30</span></div>
-    <div class="menu-card">Elaichi Chai <span>₹25</span></div>
-    <div class="menu-card">Special Tea <span>₹35</span></div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section id="why" class="section why">
-  <h2>Why People Love Us ❤️</h2>
-  <div class="why-grid">
-    <div>✔ Authentic Basundi Taste</div>
-    <div>✔ Premium Milk Quality</div>
-    <div>✔ Cozy Seating</div>
-    <div>✔ Affordable Prices</div>
-    <div>✔ Fast Service</div>
-    <div>✔ Open Till 11 PM</div>
+  <div class="menu-list">
+    <div>Basundi Chai <span>₹40</span></div>
+    <div>Classic Chai <span>₹20</span></div>
+    <div>Masala Chai <span>₹30</span></div>
+    <div>Elaichi Chai <span>₹25</span></div>
   </div>
 </section>
 
@@ -68,30 +59,31 @@
 <section id="gallery" class="section gallery">
   <h2>Gallery</h2>
   <div class="gallery-grid">
-    <div class="img-box">Chai Glass</div>
     <div class="img-box">Cafe Interior</div>
-    <div class="img-box">Seating Area</div>
-    <div class="img-box">Evening Vibe</div>
+    <div class="img-box">Chai Glass</div>
+    <div class="img-box">Evening Crowd</div>
+    <div class="img-box">Counter View</div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section contact">
-  <h2>Visit Us</h2>
-  <p>📍 DSP Basundi Chai</p>
+  <h2>Contact Us</h2>
   <p>🕒 Open till 11:00 PM</p>
-
-  <div class="contact-buttons">
-    <a href="tel:+91XXXXXXXXXX" class="btn">Call Now</a>
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn outline">WhatsApp</a>
-  </div>
+  <a href="tel:+919822363287" class="btn">Call Now</a>
+  <a href="https://wa.me/+919822363287" class="btn outline">WhatsApp</a>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <p>© 2026 DSP Basundi Chai</p>
-  <p>Authentic Taste • Everyday Happiness ☕</p>
 </footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
 
 </body>
 </html>
