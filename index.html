@@ -5,144 +5,268 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D.S.P. BiggioBi Sticklets | Food & Beverages</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        :root {
-            --primary-color: #c62828;
-            --secondary-color: #ff9800;
-            --accent-color: #4caf50;
-            --text-color: #333;
-            --light-color: #f8f8f8;
-            --dark-color: #222;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        body {
-            background-color: #f9f9f9;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 15px 0;
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo h1 {
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            font-weight: 800;
-            line-height: 1;
-        }
-        
-        .logo h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--secondary-color);
-            margin-top: 5px;
-        }
-        
-        /* Navigation */
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        nav ul li a:hover, nav ul li a.active {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 14px 32px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-        
-        .cta-button:hover {
-            background-color: #e68900;
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>D.S.P</h1>
+                <h2>BIGGIOBI STICKLETS 9</h2>
+            </div>
+            
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="navMenu">
+                    <li><a href="#overview" class="active">Overview</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#photos">Photos</a></li>
+                    <li><a href="#updates">Updates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Authentic Flavors, Memorable Experiences</h2>
+            <p>Discover the unique taste of traditional basundi chai paired with warm bun maska or cream rolls at D.S.P BiggioBi Sticklets 9.</p>
+            <a href="#menu" class="cta-button">View Our Menu</a>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Overview</h2>
+                <p>Get to know our food haven</p>
+            </div>
+            
+            <div class="info-section">
+                <h3><i class="fas fa-lightbulb"></i> Know Before You Go <span class="new-badge">New!</span></h3>
+                <p>At D.S.P BiggioBi Sticklets 9, we're committed to providing you with an authentic culinary experience. Our establishment blends traditional recipes with a modern touch, creating a unique atmosphere for food lovers.</p>
+                
+                <div class="pairing">
+                    <i class="fas fa-mug-hot"></i>
+                    <p>Pair your basundi chai with a warm bun maska or cream roll for the perfect combination of flavors.</p>
+                </div>
+            </div>
+            
+            <div class="signature-dish">
+                <h3>Signature Dish</h3>
+                <div class="dish-image"></div>
+                <p class="dish-description">Our signature basundi chai is a creamy, rich tea beverage made with a special blend of spices, milk, and tea leaves. Slow-cooked to perfection, it's the heart of our menu and pairs exquisitely with our freshly baked bun maska or decadent cream rolls.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Menu</h2>
+                <p>Delicious offerings for every palate</p>
+            </div>
+            
+            <div class="menu-preview">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1569927533382-9d4ee6f8dd4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Basundi Chai">
+                    <div class="menu-item-content">
+                        <h4>Basundi Chai</h4>
+                        <p>Our signature creamy tea beverage infused with traditional spices and slow-cooked to perfection.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Bun Maska">
+                    <div class="menu-item-content">
+                        <h4>Bun Maska</h4>
+                        <p>Soft, warm bun served with generous amounts of creamy butter - the perfect pairing with chai.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1559620192-032c64bc86af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cream Roll">
+                    <div class="menu-item-content">
+                        <h4>Cream Roll</h4>
+                        <p>Flaky pastry filled with sweet cream - a delightful dessert to complement your beverage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+                <p>What our patrons say about us</p>
+            </div>
+            
+            <div class="reviews">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Rahul Sharma</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"The basundi chai here is absolutely divine! Paired with the warm bun maska, it's the perfect comfort food. Highly recommended!"</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Priya Patel</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"I've been coming here for years. The cream rolls are to die for! The ambiance is cozy and the service is always excellent."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Anil Kumar</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Best place for an evening snack. Their basundi chai is unique and can't be found anywhere else in the city. A must-visit!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photos Section -->
+    <section id="photos" class="photos-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Photo Gallery</h2>
+                <p>Visuals from our establishment</p>
+            </div>
+            
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Interior">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Food Presentation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Chai Preparation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Desserts">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Updates Section -->
+    <section id="updates" class="updates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Updates & News</h2>
+                <p>Stay informed about our latest offerings</p>
+            </div>
+            
+            <div class="update-card">
+                <h4><i class="fas fa-bullhorn"></i> New Seasonal Menu</h4>
+                <p class="update-date">Posted on: January 15, 2025</p>
+                <p>We're excited to introduce our new seasonal menu featuring special monsoon snacks and beverages. Try our new masala bun maska and special ginger basundi chai!</p>
+            </div>
+            
+            <div class="update-card">
+                <h4><i class="fas fa-clock"></i> Extended Hours</h4>
+                <p class="update-date">Posted on: December 20, 2024</p>
+                <p>We're now open until 11 PM on weekends! Enjoy your favorite basundi chai and snacks late into the evening every Friday and Saturday.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is the signature dish at D.S.P BiggioBi Sticklets 9?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our signature dish is the basundi chai, a creamy, rich tea beverage made with a special blend of spices, milk, and tea leaves. It's slow-cooked to perfection and pairs exquisitely with our freshly baked bun maska or decadent cream rolls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>D.S.P BiggioBi Sticklets 9</h3>
+                    <p>Authentic flavors, memorable experiences. Serving the community since 2015.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#photos">Photos</a></li>
+                        <li><a href="#updates">Updates</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food Street, Culinary District</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> info@dspbiggibisticklets.com</p>
+                    <p><i class="fas fa-clock"></i> Open: 8:00 AM - 10:00 PM (Mon-Sun)</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 D.S.P BiggioBi Sticklets 9. All rights reserved.</p>
+                <p>Website designed with <i class="fas fa-heart"></i> for food lovers everywhere.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>            background-color: #e68900;
             transform: translateY(-3px);
         }
         
