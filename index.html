@@ -1,89 +1,890 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DSP Basundi Chai</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.S.P. BiggioBi Sticklets | Food & Beverages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #c62828;
+            --secondary-color: #ff9800;
+            --accent-color: #4caf50;
+            --text-color: #333;
+            --light-color: #f8f8f8;
+            --dark-color: #222;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .logo h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 14px 32px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-button:hover {
+            background-color: #e68900;
+            transform: translateY(-3px);
+        }
+        
+        /* Main Content */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Know Before You Go Section */
+        .info-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .info-section h3 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-section h3 i {
+            margin-right: 10px;
+        }
+        
+        .pairing {
+            background-color: #fff8e1;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .pairing i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-right: 20px;
+        }
+        
+        .pairing p {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        /* Signature Dish Section */
+        .signature-dish {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .signature-dish h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .dish-image {
+            height: 300px;
+            background: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .dish-description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Menu Preview */
+        .menu-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .menu-item-content {
+            padding: 20px;
+        }
+        
+        .menu-item h4 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Reviews */
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .review-stars {
+            color: var(--secondary-color);
+            margin-top: 5px;
+        }
+        
+        /* Photo Gallery */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Updates Section */
+        .updates {
+            background-color: var(--light-color);
+        }
+        
+        .update-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .update-card h4 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .update-card h4 i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .update-date {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f5f5f5;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 300px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo h3 {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links h4, .footer-contact h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-color);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .pairing {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .pairing i {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 70px 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .info-section, .signature-dish, .update-card {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>D.S.P</h1>
+                <h2>BIGGIOBI STICKLETS 9</h2>
+            </div>
+            
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="navMenu">
+                    <li><a href="#overview" class="active">Overview</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#photos">Photos</a></li>
+                    <li><a href="#updates">Updates</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<!-- HEADER -->
-<header class="topbar">
-  <div class="brand">DSP Basundi Chai</div>
-  <div class="menu-btn" onclick="toggleMenu()">☰</div>
-</header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Authentic Flavors, Memorable Experiences</h2>
+            <p>Discover the unique taste of traditional basundi chai paired with warm bun maska or cream rolls at D.S.P BiggioBi Sticklets 9.</p>
+            <a href="#menu" class="cta-button">View Our Menu</a>
+        </div>
+    </section>
 
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="mobile-menu">
-  <span onclick="toggleMenu()">✕</span>
-  <a href="#home">Home</a>
-  <a href="#about">About Us</a>
-  <a href="#menu">Our Menu</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact Us</a>
-</div>
+    <!-- Overview Section -->
+    <section id="overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Overview</h2>
+                <p>Get to know our food haven</p>
+            </div>
+            
+            <div class="info-section">
+                <h3><i class="fas fa-lightbulb"></i> Know Before You Go <span class="new-badge">New!</span></h3>
+                <p>At D.S.P BiggioBi Sticklets 9, we're committed to providing you with an authentic culinary experience. Our establishment blends traditional recipes with a modern touch, creating a unique atmosphere for food lovers.</p>
+                
+                <div class="pairing">
+                    <i class="fas fa-mug-hot"></i>
+                    <p>Pair your basundi chai with a warm bun maska or cream roll for the perfect combination of flavors.</p>
+                </div>
+            </div>
+            
+            <div class="signature-dish">
+                <h3>Signature Dish</h3>
+                <div class="dish-image"></div>
+                <p class="dish-description">Our signature basundi chai is a creamy, rich tea beverage made with a special blend of spices, milk, and tea leaves. Slow-cooked to perfection, it's the heart of our menu and pairs exquisitely with our freshly baked bun maska or decadent cream rolls.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-overlay">
-    <h1>Every Sip Feels Like Home</h1>
-    <p>Authentic Basundi Chai • Premium Taste</p>
-  </div>
-</section>
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Menu</h2>
+                <p>Delicious offerings for every palate</p>
+            </div>
+            
+            <div class="menu-preview">
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1569927533382-9d4ee6f8dd4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Basundi Chai">
+                    <div class="menu-item-content">
+                        <h4>Basundi Chai</h4>
+                        <p>Our signature creamy tea beverage infused with traditional spices and slow-cooked to perfection.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab794f27d2e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Bun Maska">
+                    <div class="menu-item-content">
+                        <h4>Bun Maska</h4>
+                        <p>Soft, warm bun served with generous amounts of creamy butter - the perfect pairing with chai.</p>
+                    </div>
+                </div>
+                
+                <div class="menu-item">
+                    <img src="https://images.unsplash.com/photo-1559620192-032c64bc86af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cream Roll">
+                    <div class="menu-item-content">
+                        <h4>Cream Roll</h4>
+                        <p>Flaky pastry filled with sweet cream - a delightful dessert to complement your beverage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ABOUT -->
-<section id="about" class="section about">
-  <h3>ABOUT US</h3>
-  <h2>Offering one of the best quality chai in the market</h2>
-  <p>
-    DSP Basundi Chai brings a perfect blend of tradition and taste.
-    Prepared with rich milk, authentic basundi flavour, and love,
-    our chai creates moments that people remember.
-  </p>
-</section>
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Customer Reviews</h2>
+                <p>What our patrons say about us</p>
+            </div>
+            
+            <div class="reviews">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Rahul Sharma</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"The basundi chai here is absolutely divine! Paired with the warm bun maska, it's the perfect comfort food. Highly recommended!"</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Priya Patel</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"I've been coming here for years. The cream rolls are to die for! The ambiance is cozy and the service is always excellent."</p>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>
+                            <h4>Anil Kumar</h4>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Best place for an evening snack. Their basundi chai is unique and can't be found anywhere else in the city. A must-visit!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- MENU -->
-<section id="menu" class="section menu">
-  <h2>Our Menu</h2>
-  <div class="menu-list">
-    <div>Basundi Chai <span>₹40</span></div>
-    <div>Classic Chai <span>₹20</span></div>
-    <div>Masala Chai <span>₹30</span></div>
-    <div>Elaichi Chai <span>₹25</span></div>
-  </div>
-</section>
+    <!-- Photos Section -->
+    <section id="photos" class="photos-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Photo Gallery</h2>
+                <p>Visuals from our establishment</p>
+            </div>
+            
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w-600&q=80" alt="Interior">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Food Presentation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Chai Preparation">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Desserts">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- GALLERY -->
-<section id="gallery" class="section gallery">
-  <h2>Gallery</h2>
-  <div class="gallery-grid">
-    <div class="img-box">Cafe Interior</div>
-    <div class="img-box">Chai Glass</div>
-    <div class="img-box">Evening Crowd</div>
-    <div class="img-box">Counter View</div>
-  </div>
-</section>
+    <!-- Updates Section -->
+    <section id="updates" class="updates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Updates & News</h2>
+                <p>Stay informed about our latest offerings</p>
+            </div>
+            
+            <div class="update-card">
+                <h4><i class="fas fa-bullhorn"></i> New Seasonal Menu</h4>
+                <p class="update-date">Posted on: January 15, 2025</p>
+                <p>We're excited to introduce our new seasonal menu featuring special monsoon snacks and beverages. Try our new masala bun maska and special ginger basundi chai!</p>
+            </div>
+            
+            <div class="update-card">
+                <h4><i class="fas fa-clock"></i> Extended Hours</h4>
+                <p class="update-date">Posted on: December 20, 2024</p>
+                <p>We're now open until 11 PM on weekends! Enjoy your favorite basundi chai and snacks late into the evening every Friday and Saturday.</p>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is the signature dish at D.S.P BiggioBi Sticklets 9?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our signature dish is the basundi chai, a creamy, rich tea beverage made with a special blend of spices, milk, and tea leaves. It's slow-cooked to perfection and pairs exquisitely with our freshly baked bun maska or decadent cream rolls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section contact">
-  <h2>Contact Us</h2>
-  <p>🕒 Open till 11:00 PM</p>
-  <a href="tel:+919822363287" class="btn">Call Now</a>
-  <a href="https://wa.me/+919822363287" class="btn outline">WhatsApp</a>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>D.S.P BiggioBi Sticklets 9</h3>
+                    <p>Authentic flavors, memorable experiences. Serving the community since 2015.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#photos">Photos</a></li>
+                        <li><a href="#updates">Updates</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food Street, Culinary District</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> info@dspbiggibisticklets.com</p>
+                    <p><i class="fas fa-clock"></i> Open: 8:00 AM - 10:00 PM (Mon-Sun)</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 D.S.P BiggioBi Sticklets 9. All rights reserved.</p>
+                <p>Website designed with <i class="fas fa-heart" style="color:#c62828;"></i> for food lovers everywhere.</p>
+            </div>
+        </div>
+    </footer>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 DSP Basundi Chai</p>
-</footer>
-
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("open");
-}
-</script>
-
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // FAQ toggle functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close other open FAQ items
+                faqItems.forEach(otherItem => {
+                    if(otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ item
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Set active nav link based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if(window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
